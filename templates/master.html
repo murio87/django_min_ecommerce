@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>e-Duka</title>
+    {% load static %}
+    <script src="{%  static 'bootstrap/js/jquery-3.4.0.js' %}"></script>
+    <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+    <link rel="stylesheet" href="../static/styles.css">
+
+
+
+</head>
+<body>
+<div id="header">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark" >
+        <a class="navbar-brand mr-auto" href="{% url 'home-url' %}">e-Duka</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home-url' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'product-url' %}">Buy Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'registration-url' %}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login-url' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout-url' %}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-light fa-user"></i>{{ user.username }}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<p class="text-center">
+    {% for message in messages %}
+    	{{ message }}
+    {% endfor %}
+
+</p>
+{% block content %}
+
+{% endblock %}
+<div class="footer">
+    <h5 class="text-infor justify-content-center mt-4" id="footer">
+        &copy; Copyright e-Duka 2023
+    </h5>
+</div>
+
+
+</body>
+</html>
